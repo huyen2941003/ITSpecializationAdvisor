@@ -47,13 +47,12 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Connection.cs" />
-    <Compile Include="DTO\Admins.cs" />
-    <Compile Include="DTO\Consultation_Results.cs" />
-    <Compile Include="DTO\Majors.cs" />
-    <Compile Include="DTO\Rules.cs" />
-    <Compile Include="DTO\Skills_Preferences.cs" />
-    <Compile Include="DTO\Students.cs" />
-    <Compile Include="DTO\Student_Skills.cs" />
+    <Compile Include="DAO\AdminDAO.cs" />
+    <Compile Include="DTO\Admin.cs" />
+    <Compile Include="DTO\Preference.cs" />
+    <Compile Include="DTO\Result.cs" />
+    <Compile Include="DTO\Student.cs" />
+    <Compile Include="DTO\UserSelection.cs" />
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -62,6 +61,24 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="View\Main.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\Main.Designer.cs">
+      <DependentUpon>Main.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\SignIn.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="View\SignIn.Designer.cs">
+      <DependentUpon>SignIn.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\SignUp.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="View\SignUp.Designer.cs">
+      <DependentUpon>SignUp.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>
@@ -91,9 +108,6 @@
   <ItemGroup>
     <None Include="Resources\icons8-home-100.png" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="DAO\" />
-    <Folder Include="View\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
