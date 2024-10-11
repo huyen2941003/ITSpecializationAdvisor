@@ -7,27 +7,34 @@ using System.Threading.Tasks;
 
 namespace App_HCG.DTO
 {
-    internal class Admin
+    internal class Account
     {
-        private int admin_id;
+        private int id;
+        private string name;
         private string username;
         private string password_hash;
+        private int role;
 
-        public Admin(int admin_id, string username, string password_hash)
+        public Account(int id, string name, string username, string password_hash, int role)
         {
-            this.Admin_id = admin_id;
+            this.Id = id;
+            this.Name = name;
             this.Username = username;
             this.Password_hash = password_hash;
+            this.Role = role;
         }
-        public Admin(DataRow row)
+        public Account(DataRow row)
         {
-            this.Admin_id = int.Parse(row["admin_id"].ToString());
+            this.Id = int.Parse(row["id"].ToString());
+            this.Name = row["name"].ToString();
             this.Username = row["username"].ToString();
             this.Password_hash = row["password_hash"].ToString();
+            this.Role = int.Parse(row["role"].ToString());
         }
-
-        public int Admin_id { get => admin_id; set => admin_id = value; }
+        public int Id { get => id; set => id = value; }
+        public string Name { get => name; set => name = value; }
         public string Username { get => username; set => username = value; }
         public string Password_hash { get => password_hash; set => password_hash = value; }
+        public int Role { get => role; set => role = value; }
     }
 }

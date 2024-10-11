@@ -8,11 +8,11 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace App_HCG.View
+namespace App_HCG.Views.Admin
 {
-    public partial class Main : Form
+    public partial class Preference : UserControl
     {
-        public Main()
+        public Preference()
         {
             InitializeComponent();
         }

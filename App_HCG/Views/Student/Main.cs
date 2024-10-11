@@ -8,11 +8,11 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace App_HCG.View
+namespace App_HCG.Views.Student
 {
-    public partial class SignIn : UserControl
+    public partial class Main : Form
     {
-        public SignIn()
+        public Main()
         {
             InitializeComponent();
         }

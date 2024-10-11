@@ -12,7 +12,7 @@ namespace App_HCG
 {
     internal class Connection
     {
-        private String constr = @"Data Source = ADMIN\SQLEXPRESS;Initial Catalog = HCG; Integrated Security = True; Trust Server Certificate=True";
+        private string constr = @"Data Source=ADMIN\SQLEXPRESS;Initial Catalog=DB_HCG;Integrated Security=True;";
         private static Connection instance;
 
         public static Connection Instance
@@ -21,59 +21,40 @@ namespace App_HCG
             private set { Connection.instance = value; }
         }
 
-        public DataTable ExecuteOuery(string query, object[] parameters = null)
-        {
-            try
-            {
-                DataTable data = new DataTable();
-                using (SqlConnection conn = new SqlConnection(constr))
-                {
-                    conn.Open();
-                    SqlCommand command = new SqlCommand(query, conn);
-                    if (parameters != null)
-                    {
-                        for (int i = 0; i < parameters.Length; i++)
-                        {
-                            command.Parameters.AddWithValue($"@param{i}", parameters[i]);
-                        }
-                    }
-                    SqlDataAdapter adapter = new SqlDataAdapter(command);
-                    adapter.Fill(data);
-                }
-                return data;
-            }
-            catch (Exception ex)
-            {
-                throw ex;
-            }
-        }
         public DataTable ExecuteQuery(string query, object[] parameters = null)
         {
-            try
+            DataTable data = new DataTable();
+            using (SqlConnection conn = new SqlConnection(constr))
             {
-                DataTable data = new DataTable();
-                using (SqlConnection conn = new SqlConnection(constr))
+                try
                 {
                     conn.Open();
-                    SqlCommand command = new SqlCommand(query, conn);
-                    if (parameters != null)
+                    using (SqlCommand command = new SqlCommand(query, conn))
                     {
-                        for (int i = 0; i < parameters.Length; i++)
+                        if (parameters != null)
                         {
-                            command.Parameters.AddWithValue($"@param{i}", parameters[i]);
+                            for (int i = 0; i < parameters.Length; i++)
+                            {
+                                command.Parameters.Add(new SqlParameter($"@param{i}", parameters[i]));
+                            }
+                        }
+
+                        using (SqlDataAdapter adapter = new SqlDataAdapter(command))
+                        {
+                            adapter.Fill(data);
                         }
                     }
-                    SqlDataAdapter adapter = new SqlDataAdapter(command);
-                    adapter.Fill(data);
                 }
-                return data;
+                catch (Exception ex)
+                {
+                    // Xử lý lỗi ở đây (ví dụ: ghi log)
+                    throw new Exception("Error executing query: " + ex.Message, ex);
+                }
             }
-            catch (Exception ex)
-            {
-                throw ex;
-            }
+            return data;
         }
-        public int ExecuteNonOuery(string query, object[] parameters = null)
+
+        public int ExecuteNonQuery(string query, object[] parameters = null)
         {
             int data = 0;
             using (SqlConnection conn = new SqlConnection(constr))
@@ -81,26 +62,22 @@ namespace App_HCG
                 try
                 {
                     conn.Open();
-                    SqlCommand command = new SqlCommand(query, conn);
-                    if (parameters != null)
+                    using (SqlCommand command = new SqlCommand(query, conn))
                     {
-                        for (int i = 0; i < parameters.Length; i++)
+                        if (parameters != null)
                         {
-                            command.Parameters.AddWithValue($"@param{i}", parameters[i]);
+                            for (int i = 0; i < parameters.Length; i++)
+                            {
+                                command.Parameters.Add(new SqlParameter($"@param{i}", parameters[i]));
+                            }
                         }
+                        data = command.ExecuteNonQuery();
                     }
-                    data = command.ExecuteNonQuery();
                 }
                 catch (Exception ex)
                 {
-                    throw ex;
-                }
-                finally
-                {
-                    if (conn.State == ConnectionState.Open)
-                    {
-                        conn.Close();
-                    }
+                    // Xử lý lỗi ở đây (ví dụ: ghi log)
+                    throw new Exception("Error executing non-query: " + ex.Message, ex);
                 }
             }
             return data;
@@ -108,29 +85,31 @@ namespace App_HCG
 
         public object ExecuteScalar(string query, object[] parameters = null)
         {
-            try
+            object data = null;
+            using (SqlConnection conn = new SqlConnection(constr))
             {
-                object data = null;
-                using (SqlConnection conn = new SqlConnection(constr))
+                try
                 {
                     conn.Open();
-                    SqlCommand command = new SqlCommand(query, conn);
-                    if (parameters != null)
+                    using (SqlCommand command = new SqlCommand(query, conn))
                     {
-                        for (int i = 0; i < parameters.Length; i++)
+                        if (parameters != null)
                         {
-                            command.Parameters.AddWithValue($"@param{i}", parameters[i]);
+                            for (int i = 0; i < parameters.Length; i++)
+                            {
+                                command.Parameters.Add(new SqlParameter($"@param{i}", parameters[i]));
+                            }
                         }
+                        data = command.ExecuteScalar();
                     }
-                    data = command.ExecuteScalar();
-                    conn.Close();
                 }
-                return data;
+                catch (Exception ex)
+                {
+                    // Xử lý lỗi ở đây (ví dụ: ghi log)
+                    throw new Exception("Error executing scalar query: " + ex.Message, ex);
+                }
             }
-            catch (Exception ex)
-            {
-                throw ex;
-            }
+            return data;
         }
     }
 }

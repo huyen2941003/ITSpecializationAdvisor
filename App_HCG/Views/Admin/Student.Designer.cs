@@ -1,6 +1,6 @@
-﻿namespace App_HCG.View
+﻿namespace App_HCG.Views.Admin
 {
-    partial class SignUp
+    partial class Student
     {
         /// <summary> 
         /// Required designer variable.
@@ -28,8 +28,16 @@
         /// </summary>
         private void InitializeComponent()
         {
-            components = new System.ComponentModel.Container();
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.SuspendLayout();
+            // 
+            // Student
+            // 
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
+            this.BackColor = System.Drawing.Color.White;
+            this.Name = "Student";
+            this.Size = new System.Drawing.Size(1517, 768);
+            this.ResumeLayout(false);
+
         }
 
         #endregion

@@ -8,13 +8,18 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace App_HCG.View
+namespace App_HCG.Views.Admin
 {
-    public partial class SignUp : UserControl
+    public partial class About : UserControl
     {
-        public SignUp()
+        public About()
         {
             InitializeComponent();
+        }
+
+        private void About_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

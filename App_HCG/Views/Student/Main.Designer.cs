@@ -1,4 +1,4 @@
-﻿namespace App_HCG.View
+﻿namespace App_HCG.Views.Student
 {
     partial class Main
     {
@@ -28,10 +28,16 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.SuspendLayout();
+            // 
+            // Main
+            // 
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Name = "Main";
             this.Text = "Main";
+            this.ResumeLayout(false);
+
         }
 
         #endregion

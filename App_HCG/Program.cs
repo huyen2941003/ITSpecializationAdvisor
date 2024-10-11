@@ -16,7 +16,7 @@ namespace App_HCG
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Form1());
+            Application.Run(new Views.SignIn_Up.frm_Signup());
         }
     }
 }
