@@ -15,13 +15,14 @@ namespace App_HCG.Views.Admin
         private int role;
         public int Role { get => role; set => role = value; }
 
-        public Main(int role)
+        //public Main(int role)
+        public Main()
         {
             InitializeComponent();
-            this.Role = role;
-            DisplayAccount(role);
+            //this.Role = role;
+            //DisplayAccount(role);
         }
-        private void DisplayAccount(int role)
+        /*private void DisplayAccount(int role)
         {
             if (role == 1)
             {
@@ -41,7 +42,7 @@ namespace App_HCG.Views.Admin
                 chuyênNgànhToolStripMenuItem.Visible = true;
                 giớiThiệuToolStripMenuItem.Visible = true;
             }
-        }
+        }*/
         protected override void OnLoad(EventArgs e)
         {
             base.OnLoad(e);
@@ -50,9 +51,7 @@ namespace App_HCG.Views.Admin
         }
         private void tưVấnToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            Views.Admin.UserSelection myControl = new Views.Admin.UserSelection();
-            panel_main.Controls.Clear();
-            panel_main.Controls.Add(myControl);
+            
         }
 
         private void tậpLuậtToolStripMenuItem_Click(object sender, EventArgs e)
@@ -71,7 +70,7 @@ namespace App_HCG.Views.Admin
 
         private void kếtQuảToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            Views.Admin.Result myControl = new Views.Admin.Result();
+            Views.Admin.Majors myControl = new Views.Admin.Majors();
             panel_main.Controls.Clear();
             panel_main.Controls.Add(myControl);
         }

@@ -30,10 +30,10 @@
         {
             this.label2 = new System.Windows.Forms.Label();
             this.grpbox = new System.Windows.Forms.GroupBox();
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.label_cnpm = new System.Windows.Forms.Label();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.label_tmdt = new System.Windows.Forms.Label();
+            this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.label_qtanm = new System.Windows.Forms.Label();
             this.grpbox.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -63,6 +63,14 @@
             this.grpbox.TabStop = false;
             this.grpbox.Text = "Công nghệ phần mềm";
             // 
+            // label_cnpm
+            // 
+            this.label_cnpm.Font = new System.Drawing.Font("Times New Roman", 19.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label_cnpm.Location = new System.Drawing.Point(28, 66);
+            this.label_cnpm.Name = "label_cnpm";
+            this.label_cnpm.Size = new System.Drawing.Size(385, 518);
+            this.label_cnpm.TabIndex = 29;
+            // 
             // groupBox1
             // 
             this.groupBox1.Controls.Add(this.label_tmdt);
@@ -74,6 +82,14 @@
             this.groupBox1.TabIndex = 28;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Hệ thống thương mại điện tử";
+            // 
+            // label_tmdt
+            // 
+            this.label_tmdt.Font = new System.Drawing.Font("Times New Roman", 19.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label_tmdt.Location = new System.Drawing.Point(28, 66);
+            this.label_tmdt.Name = "label_tmdt";
+            this.label_tmdt.Size = new System.Drawing.Size(385, 518);
+            this.label_tmdt.TabIndex = 30;
             // 
             // groupBox2
             // 
@@ -87,25 +103,9 @@
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Quản trị an ninh mạng";
             // 
-            // label_cnpm
-            // 
-            this.label_cnpm.Font = new System.Drawing.Font("Times New Roman", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label_cnpm.Location = new System.Drawing.Point(28, 66);
-            this.label_cnpm.Name = "label_cnpm";
-            this.label_cnpm.Size = new System.Drawing.Size(385, 518);
-            this.label_cnpm.TabIndex = 29;
-            // 
-            // label_tmdt
-            // 
-            this.label_tmdt.Font = new System.Drawing.Font("Times New Roman", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label_tmdt.Location = new System.Drawing.Point(28, 66);
-            this.label_tmdt.Name = "label_tmdt";
-            this.label_tmdt.Size = new System.Drawing.Size(385, 518);
-            this.label_tmdt.TabIndex = 30;
-            // 
             // label_qtanm
             // 
-            this.label_qtanm.Font = new System.Drawing.Font("Times New Roman", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label_qtanm.Font = new System.Drawing.Font("Times New Roman", 19.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label_qtanm.Location = new System.Drawing.Point(29, 66);
             this.label_qtanm.Name = "label_qtanm";
             this.label_qtanm.Size = new System.Drawing.Size(385, 518);

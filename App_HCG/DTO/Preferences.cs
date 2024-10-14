@@ -7,17 +7,17 @@ using System.Threading.Tasks;
 
 namespace App_HCG.DTO
 {
-    internal class Preference
+    internal class Preferences
     {
         private string id;
         private string description;
 
-        public Preference(string id, string description)
+        public Preferences(string id, string description)
         {
             this.Id = id;
             this.Description = description;
         }
-        public Preference(DataRow row)
+        public Preferences(DataRow row)
         {
             this.Id = row["id"].ToString();
             this.Description = row["description"].ToString();

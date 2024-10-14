@@ -19,33 +19,33 @@ namespace App_HCG.DAO
         }
 
         private PreferenceDAO() { }
-        public List<Preference> getlistPreference()
+        public List<Preferences> getlistPreferences()
         {
-            List<Preference> list = new List<Preference>();
-            string query = "select * from Preference";
+            List<Preferences> list = new List<Preferences>();
+            string query = "select * from Preferences";
             DataTable data = Connection.Instance.ExecuteQuery(query);
             foreach (DataRow item in data.Rows)
             {
-                Preference preference = new Preference(item);
-                list.Add(preference);
+                Preferences preferences = new Preferences(item);
+                list.Add(preferences);
             }
             return list;
         }
-        public bool InsertPreference(string description)
+        public bool InsertPreferences(string description)
         {
-            string query = string.Format("Insert into Preference (description) values (N'{0}')", description);
+            string query = string.Format("Insert into Preferences (description) values (N'{0}')", description);
             int result = Connection.Instance.ExecuteNonQuery(query);
             return result > 0;
         }
-        public bool UpdatePreference(string id, string description)
+        public bool UpdatePreferences(string id, string description)
         {
-            string query = string.Format("Update Preference set description = N'{0}' where id = N'{1}'", description, id);
+            string query = string.Format("Update Preferences set description = N'{0}' where id = N'{1}'", description, id);
             int result = Connection.Instance.ExecuteNonQuery(query);
             return result > 0;
         }
-        public bool DeletePreference(string id)
+        public bool DeletePreferences(string id)
         {
-            string query = string.Format("Delete from Preference where id = N'{0}'", id);
+            string query = string.Format("Delete from Preferences where id = N'{0}'", id);
             int result = Connection.Instance.ExecuteNonQuery(query);
             return result > 0;
         }

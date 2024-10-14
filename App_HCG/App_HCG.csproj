@@ -48,13 +48,11 @@
   <ItemGroup>
     <Compile Include="Connection.cs" />
     <Compile Include="DAO\AccountDAO.cs" />
-    <Compile Include="DAO\AdminDAO.cs" />
+    <Compile Include="DAO\MajorsDAO.cs" />
     <Compile Include="DAO\PreferenceDAO.cs" />
-    <Compile Include="DAO\ResultDAO.cs" />
     <Compile Include="DTO\Account.cs" />
     <Compile Include="DTO\Majors.cs" />
-    <Compile Include="DTO\Preference.cs" />
-    <Compile Include="DTO\Result.cs" />
+    <Compile Include="DTO\Preferences.cs" />
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -81,29 +79,23 @@
     <Compile Include="Views\Admin\Main.Designer.cs">
       <DependentUpon>Main.cs</DependentUpon>
     </Compile>
+    <Compile Include="Views\Admin\Majors.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Views\Admin\Majors.Designer.cs">
+      <DependentUpon>Majors.cs</DependentUpon>
+    </Compile>
     <Compile Include="Views\Admin\Preference.cs">
       <SubType>UserControl</SubType>
     </Compile>
     <Compile Include="Views\Admin\Preference.Designer.cs">
       <DependentUpon>Preference.cs</DependentUpon>
     </Compile>
-    <Compile Include="Views\Admin\Result.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="Views\Admin\Result.Designer.cs">
-      <DependentUpon>Result.cs</DependentUpon>
-    </Compile>
     <Compile Include="Views\Admin\Student.cs">
       <SubType>UserControl</SubType>
     </Compile>
     <Compile Include="Views\Admin\Student.Designer.cs">
       <DependentUpon>Student.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Views\Admin\UserSelection.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="Views\Admin\UserSelection.Designer.cs">
-      <DependentUpon>UserSelection.cs</DependentUpon>
     </Compile>
     <Compile Include="Views\SignIn_Up\frm_Signin.cs">
       <SubType>Form</SubType>
@@ -116,12 +108,6 @@
     </Compile>
     <Compile Include="Views\SignIn_Up\frm_Signup.Designer.cs">
       <DependentUpon>frm_Signup.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Views\Student\Main.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Views\Student\Main.Designer.cs">
-      <DependentUpon>Main.cs</DependentUpon>
     </Compile>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
@@ -145,26 +131,20 @@
     <EmbeddedResource Include="Views\Admin\Main.resx">
       <DependentUpon>Main.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Views\Admin\Majors.resx">
+      <DependentUpon>Majors.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Views\Admin\Preference.resx">
       <DependentUpon>Preference.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Views\Admin\Result.resx">
-      <DependentUpon>Result.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Views\Admin\Student.resx">
       <DependentUpon>Student.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Views\Admin\UserSelection.resx">
-      <DependentUpon>UserSelection.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Views\SignIn_Up\frm_Signin.resx">
       <DependentUpon>frm_Signin.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Views\SignIn_Up\frm_Signup.resx">
       <DependentUpon>frm_Signup.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Views\Student\Main.resx">
-      <DependentUpon>Main.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

@@ -36,6 +36,8 @@
             this.btn_insert = new System.Windows.Forms.Button();
             this.txt_des = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.txt_id = new System.Windows.Forms.TextBox();
             this.grpbox.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_preference)).BeginInit();
             this.SuspendLayout();
@@ -49,6 +51,7 @@
             this.btn_update.TabIndex = 21;
             this.btn_update.Text = "Sửa";
             this.btn_update.UseVisualStyleBackColor = true;
+            this.btn_update.Click += new System.EventHandler(this.btn_update_Click);
             // 
             // btn_delete
             // 
@@ -59,6 +62,7 @@
             this.btn_delete.TabIndex = 20;
             this.btn_delete.Text = "Xóa";
             this.btn_delete.UseVisualStyleBackColor = true;
+            this.btn_delete.Click += new System.EventHandler(this.btn_delete_Click);
             // 
             // btn_reset
             // 
@@ -69,11 +73,12 @@
             this.btn_reset.TabIndex = 19;
             this.btn_reset.Text = "Reset";
             this.btn_reset.UseVisualStyleBackColor = true;
+            this.btn_reset.Click += new System.EventHandler(this.btn_reset_Click);
             // 
             // grpbox
             // 
             this.grpbox.Controls.Add(this.dgv_preference);
-            this.grpbox.Font = new System.Drawing.Font("Times New Roman", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.grpbox.Font = new System.Drawing.Font("Times New Roman", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.grpbox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(40)))), ((int)(((byte)(83)))));
             this.grpbox.Location = new System.Drawing.Point(86, 44);
             this.grpbox.Name = "grpbox";
@@ -86,12 +91,13 @@
             // 
             this.dgv_preference.BackgroundColor = System.Drawing.Color.White;
             this.dgv_preference.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgv_preference.Location = new System.Drawing.Point(27, 62);
+            this.dgv_preference.Location = new System.Drawing.Point(27, 46);
             this.dgv_preference.Name = "dgv_preference";
             this.dgv_preference.RowHeadersWidth = 51;
             this.dgv_preference.RowTemplate.Height = 24;
-            this.dgv_preference.Size = new System.Drawing.Size(682, 592);
+            this.dgv_preference.Size = new System.Drawing.Size(682, 608);
             this.dgv_preference.TabIndex = 1;
+            this.dgv_preference.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgv_preference_CellClick);
             // 
             // btn_insert
             // 
@@ -102,12 +108,13 @@
             this.btn_insert.TabIndex = 17;
             this.btn_insert.Text = "Thêm";
             this.btn_insert.UseVisualStyleBackColor = true;
+            this.btn_insert.Click += new System.EventHandler(this.btn_insert_Click);
             // 
             // txt_des
             // 
             this.txt_des.Font = new System.Drawing.Font("Times New Roman", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txt_des.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(40)))), ((int)(((byte)(83)))));
-            this.txt_des.Location = new System.Drawing.Point(893, 217);
+            this.txt_des.Location = new System.Drawing.Point(893, 225);
             this.txt_des.Multiline = true;
             this.txt_des.Name = "txt_des";
             this.txt_des.Size = new System.Drawing.Size(515, 307);
@@ -117,16 +124,37 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Times New Roman", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(887, 170);
+            this.label3.Location = new System.Drawing.Point(893, 185);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(89, 33);
             this.label3.TabIndex = 24;
             this.label3.Text = "Mô tả:";
             // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Times New Roman", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(893, 90);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(220, 33);
+            this.label2.TabIndex = 36;
+            this.label2.Text = "Mã chuyên ngành:";
+            // 
+            // txt_id
+            // 
+            this.txt_id.Font = new System.Drawing.Font("Times New Roman", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txt_id.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(40)))), ((int)(((byte)(83)))));
+            this.txt_id.Location = new System.Drawing.Point(893, 130);
+            this.txt_id.Name = "txt_id";
+            this.txt_id.Size = new System.Drawing.Size(515, 39);
+            this.txt_id.TabIndex = 37;
+            // 
             // Preference
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.BackColor = System.Drawing.Color.White;
+            this.Controls.Add(this.txt_id);
+            this.Controls.Add(this.label2);
             this.Controls.Add(this.txt_des);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.btn_update);
@@ -136,6 +164,7 @@
             this.Controls.Add(this.btn_insert);
             this.Name = "Preference";
             this.Size = new System.Drawing.Size(1517, 768);
+            this.Load += new System.EventHandler(this.Preference_Load);
             this.grpbox.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgv_preference)).EndInit();
             this.ResumeLayout(false);
@@ -153,5 +182,7 @@
         private System.Windows.Forms.Button btn_insert;
         private System.Windows.Forms.TextBox txt_des;
         private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.TextBox txt_id;
     }
 }

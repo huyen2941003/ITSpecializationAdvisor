@@ -30,9 +30,49 @@ namespace App_HCG.DAO
             }
             return list;
         }
+        public List<Majors> getlistCNPM()
+        {
+            List<Majors> list = new List<Majors>();
+            string query = "select description from Majors where id = 'P1'";
+            DataTable data = Connection.Instance.ExecuteQuery(query);
+            foreach (DataRow item in data.Rows)
+            {
+                string description = item["description"].ToString();
+                Majors majors = new Majors(null, null, description);
+                list.Add(majors);
+            }
+            return list;
+        }
+
+        public List<Majors> getlistHTTMDT()
+        {
+            List<Majors> list = new List<Majors>();
+            string query = "select description from Majors where id = 'P2'";
+            DataTable data = Connection.Instance.ExecuteQuery(query);
+            foreach (DataRow item in data.Rows)
+            {
+                string description = item["description"].ToString();
+                Majors majors = new Majors(null, null, description);
+                list.Add(majors);
+            }
+            return list;
+        }
+        public List<Majors> getlistQTANM()
+        {
+            List<Majors> list = new List<Majors>();
+            string query = "select description from Majors where id = 'P3'";
+            DataTable data = Connection.Instance.ExecuteQuery(query);
+            foreach (DataRow item in data.Rows)
+            {
+                string description = item["description"].ToString();
+                Majors majors = new Majors(null, null, description);
+                list.Add(majors);
+            }
+            return list;
+        }
         public bool InsertMajors(string name, string description)
         {
-            string query = string.Format("Insert into Majors (name, description) values (N'{0}, N'{1}')", 
+            string query = string.Format("Insert into Majors (name, description) values (N'{0}', N'{1}')", 
                 name, description);
             int result = Connection.Instance.ExecuteNonQuery(query);
             return result > 0;

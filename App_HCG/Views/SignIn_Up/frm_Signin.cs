@@ -40,8 +40,8 @@ namespace App_HCG.Views.SignIn_Up
                 if (AccountDAO.Instance.Login(username, password).Count > 0)
                 {
                     Account loggedInUser = accounts[0];
-                    //Views.Home.frm_main frm = new Views.Home.frm_main();
-                    Views.Admin.Main frm = new Views.Admin.Main(loggedInUser.Role);
+                    Views.Admin.Main frm = new Views.Admin.Main();
+                    //Views.Admin.Main frm = new Views.Admin.Main(loggedInUser.Role);
                     this.Hide();
                     frm.ShowDialog();
                 }
