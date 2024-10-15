@@ -50,9 +50,12 @@
     <Compile Include="DAO\AccountDAO.cs" />
     <Compile Include="DAO\MajorsDAO.cs" />
     <Compile Include="DAO\PreferenceDAO.cs" />
+    <Compile Include="DAO\RulesDAO.cs" />
     <Compile Include="DTO\Account.cs" />
     <Compile Include="DTO\Majors.cs" />
     <Compile Include="DTO\Preferences.cs" />
+    <Compile Include="DTO\Rules.cs" />
+    <Compile Include="DTO\Rule_Preferences.cs" />
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -90,6 +93,12 @@
     </Compile>
     <Compile Include="Views\Admin\Preference.Designer.cs">
       <DependentUpon>Preference.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Admin\Rules.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Views\Admin\Rules.Designer.cs">
+      <DependentUpon>Rules.cs</DependentUpon>
     </Compile>
     <Compile Include="Views\Admin\Student.cs">
       <SubType>UserControl</SubType>
@@ -136,6 +145,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Views\Admin\Preference.resx">
       <DependentUpon>Preference.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Admin\Rules.resx">
+      <DependentUpon>Rules.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Views\Admin\Student.resx">
       <DependentUpon>Student.cs</DependentUpon>

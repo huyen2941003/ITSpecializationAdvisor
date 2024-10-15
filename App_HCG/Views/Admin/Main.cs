@@ -56,7 +56,7 @@ namespace App_HCG.Views.Admin
 
         private void tậpLuậtToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            Views.Admin.Preference myControl = new Views.Admin.Preference();
+            Views.Admin.Rules myControl = new Views.Admin.Rules();
             panel_main.Controls.Clear();
             panel_main.Controls.Add(myControl);
         }
