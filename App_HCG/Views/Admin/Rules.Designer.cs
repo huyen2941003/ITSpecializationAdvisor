@@ -40,9 +40,10 @@
             this.btn_delete = new System.Windows.Forms.Button();
             this.btn_insertPre = new System.Windows.Forms.Button();
             this.btn_insertMajors = new System.Windows.Forms.Button();
-            this.btn_reset2 = new System.Windows.Forms.Button();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
-            this.groupBox4 = new System.Windows.Forms.GroupBox();
+            this.label4 = new System.Windows.Forms.Label();
+            this.txt_des = new System.Windows.Forms.TextBox();
+            this.grp_yesno = new System.Windows.Forms.GroupBox();
             this.btn_yes = new System.Windows.Forms.Button();
             this.btn_no = new System.Windows.Forms.Button();
             this.txt_right = new System.Windows.Forms.TextBox();
@@ -51,8 +52,8 @@
             this.label1 = new System.Windows.Forms.Label();
             this.txt_id = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
-            this.txt_des = new System.Windows.Forms.TextBox();
-            this.label4 = new System.Windows.Forms.Label();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.btn_huy = new System.Windows.Forms.Button();
             this.grpbox.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_majors)).BeginInit();
             this.groupBox1.SuspendLayout();
@@ -60,7 +61,8 @@
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_preference)).BeginInit();
             this.groupBox3.SuspendLayout();
-            this.groupBox4.SuspendLayout();
+            this.grp_yesno.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // grpbox
@@ -85,6 +87,7 @@
             this.dgv_majors.RowTemplate.Height = 24;
             this.dgv_majors.Size = new System.Drawing.Size(505, 179);
             this.dgv_majors.TabIndex = 1;
+            this.dgv_majors.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgv_majors_CellClick);
             // 
             // groupBox1
             // 
@@ -132,6 +135,7 @@
             this.dgv_preference.RowTemplate.Height = 24;
             this.dgv_preference.Size = new System.Drawing.Size(505, 248);
             this.dgv_preference.TabIndex = 1;
+            this.dgv_preference.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgv_preference_CellClick);
             // 
             // btn_insert
             // 
@@ -142,6 +146,7 @@
             this.btn_insert.TabIndex = 22;
             this.btn_insert.Text = "Thêm";
             this.btn_insert.UseVisualStyleBackColor = true;
+            this.btn_insert.Click += new System.EventHandler(this.btn_insert_Click);
             // 
             // btn_update
             // 
@@ -152,6 +157,7 @@
             this.btn_update.TabIndex = 23;
             this.btn_update.Text = "Sửa";
             this.btn_update.UseVisualStyleBackColor = true;
+            this.btn_update.Click += new System.EventHandler(this.btn_update_Click);
             // 
             // btn_reset
             // 
@@ -162,6 +168,7 @@
             this.btn_reset.TabIndex = 25;
             this.btn_reset.Text = "Reset";
             this.btn_reset.UseVisualStyleBackColor = true;
+            this.btn_reset.Click += new System.EventHandler(this.btn_reset_Click);
             // 
             // btn_delete
             // 
@@ -172,42 +179,35 @@
             this.btn_delete.TabIndex = 24;
             this.btn_delete.Text = "Xóa";
             this.btn_delete.UseVisualStyleBackColor = true;
+            this.btn_delete.Click += new System.EventHandler(this.btn_delete_Click);
             // 
             // btn_insertPre
             // 
             this.btn_insertPre.Font = new System.Drawing.Font("Times New Roman", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_insertPre.Location = new System.Drawing.Point(623, 190);
+            this.btn_insertPre.Location = new System.Drawing.Point(627, 290);
             this.btn_insertPre.Name = "btn_insertPre";
             this.btn_insertPre.Size = new System.Drawing.Size(240, 48);
             this.btn_insertPre.TabIndex = 26;
             this.btn_insertPre.Text = "Chọn vế trái >>";
             this.btn_insertPre.UseVisualStyleBackColor = true;
+            this.btn_insertPre.Click += new System.EventHandler(this.btn_insertPre_Click);
             // 
             // btn_insertMajors
             // 
             this.btn_insertMajors.Font = new System.Drawing.Font("Times New Roman", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_insertMajors.Location = new System.Drawing.Point(623, 255);
+            this.btn_insertMajors.Location = new System.Drawing.Point(627, 355);
             this.btn_insertMajors.Name = "btn_insertMajors";
             this.btn_insertMajors.Size = new System.Drawing.Size(240, 48);
             this.btn_insertMajors.TabIndex = 27;
             this.btn_insertMajors.Text = "Chọn vế phải >>";
             this.btn_insertMajors.UseVisualStyleBackColor = true;
-            // 
-            // btn_reset2
-            // 
-            this.btn_reset2.Font = new System.Drawing.Font("Times New Roman", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_reset2.Location = new System.Drawing.Point(623, 320);
-            this.btn_reset2.Name = "btn_reset2";
-            this.btn_reset2.Size = new System.Drawing.Size(240, 48);
-            this.btn_reset2.TabIndex = 28;
-            this.btn_reset2.Text = "<< Hủy bỏ";
-            this.btn_reset2.UseVisualStyleBackColor = true;
+            this.btn_insertMajors.Click += new System.EventHandler(this.btn_insertMajors_Click);
             // 
             // groupBox3
             // 
             this.groupBox3.Controls.Add(this.label4);
             this.groupBox3.Controls.Add(this.txt_des);
-            this.groupBox3.Controls.Add(this.groupBox4);
+            this.groupBox3.Controls.Add(this.grp_yesno);
             this.groupBox3.Controls.Add(this.txt_right);
             this.groupBox3.Controls.Add(this.label3);
             this.groupBox3.Controls.Add(this.txt_left);
@@ -223,18 +223,37 @@
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Chi tiết luật";
             // 
-            // groupBox4
+            // label4
             // 
-            this.groupBox4.Controls.Add(this.btn_yes);
-            this.groupBox4.Controls.Add(this.btn_no);
-            this.groupBox4.Font = new System.Drawing.Font("Times New Roman", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(40)))), ((int)(((byte)(83)))));
-            this.groupBox4.Location = new System.Drawing.Point(38, 161);
-            this.groupBox4.Name = "groupBox4";
-            this.groupBox4.Size = new System.Drawing.Size(515, 101);
-            this.groupBox4.TabIndex = 44;
-            this.groupBox4.TabStop = false;
-            this.groupBox4.Text = "Bạn có thích?";
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Times New Roman", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.Location = new System.Drawing.Point(34, 351);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(71, 26);
+            this.label4.TabIndex = 46;
+            this.label4.Text = "Mô tả:";
+            // 
+            // txt_des
+            // 
+            this.txt_des.Font = new System.Drawing.Font("Times New Roman", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txt_des.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(40)))), ((int)(((byte)(83)))));
+            this.txt_des.Location = new System.Drawing.Point(131, 348);
+            this.txt_des.Multiline = true;
+            this.txt_des.Name = "txt_des";
+            this.txt_des.Size = new System.Drawing.Size(422, 135);
+            this.txt_des.TabIndex = 45;
+            // 
+            // grp_yesno
+            // 
+            this.grp_yesno.Controls.Add(this.btn_yes);
+            this.grp_yesno.Controls.Add(this.btn_no);
+            this.grp_yesno.Font = new System.Drawing.Font("Times New Roman", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.grp_yesno.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(40)))), ((int)(((byte)(83)))));
+            this.grp_yesno.Location = new System.Drawing.Point(38, 161);
+            this.grp_yesno.Name = "grp_yesno";
+            this.grp_yesno.Size = new System.Drawing.Size(515, 101);
+            this.grp_yesno.TabIndex = 44;
+            this.grp_yesno.TabStop = false;
             // 
             // btn_yes
             // 
@@ -245,6 +264,7 @@
             this.btn_yes.TabIndex = 32;
             this.btn_yes.Text = "Có";
             this.btn_yes.UseVisualStyleBackColor = true;
+            this.btn_yes.Click += new System.EventHandler(this.btn_yes_Click);
             // 
             // btn_no
             // 
@@ -255,6 +275,7 @@
             this.btn_no.TabIndex = 31;
             this.btn_no.Text = "Không";
             this.btn_no.UseVisualStyleBackColor = true;
+            this.btn_no.Click += new System.EventHandler(this.btn_no_Click);
             // 
             // txt_right
             // 
@@ -313,32 +334,34 @@
             this.label2.TabIndex = 38;
             this.label2.Text = "Mã luật:";
             // 
-            // txt_des
+            // pictureBox1
             // 
-            this.txt_des.Font = new System.Drawing.Font("Times New Roman", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txt_des.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(40)))), ((int)(((byte)(83)))));
-            this.txt_des.Location = new System.Drawing.Point(131, 348);
-            this.txt_des.Multiline = true;
-            this.txt_des.Name = "txt_des";
-            this.txt_des.Size = new System.Drawing.Size(422, 135);
-            this.txt_des.TabIndex = 45;
+            this.pictureBox1.Image = global::App_HCG.Properties.Resources.logo;
+            this.pictureBox1.Location = new System.Drawing.Point(627, 49);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(240, 210);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox1.TabIndex = 28;
+            this.pictureBox1.TabStop = false;
             // 
-            // label4
+            // btn_huy
             // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Times New Roman", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(34, 351);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(71, 26);
-            this.label4.TabIndex = 46;
-            this.label4.Text = "Mô tả:";
+            this.btn_huy.Font = new System.Drawing.Font("Times New Roman", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_huy.Location = new System.Drawing.Point(627, 421);
+            this.btn_huy.Name = "btn_huy";
+            this.btn_huy.Size = new System.Drawing.Size(240, 48);
+            this.btn_huy.TabIndex = 29;
+            this.btn_huy.Text = "<< Hủy bỏ";
+            this.btn_huy.UseVisualStyleBackColor = true;
+            this.btn_huy.Click += new System.EventHandler(this.btn_huy_Click);
             // 
             // Rules
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.BackColor = System.Drawing.Color.White;
+            this.Controls.Add(this.btn_huy);
+            this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.groupBox3);
-            this.Controls.Add(this.btn_reset2);
             this.Controls.Add(this.btn_insertMajors);
             this.Controls.Add(this.btn_insertPre);
             this.Controls.Add(this.btn_reset);
@@ -359,7 +382,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.dgv_preference)).EndInit();
             this.groupBox3.ResumeLayout(false);
             this.groupBox3.PerformLayout();
-            this.groupBox4.ResumeLayout(false);
+            this.grp_yesno.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -378,7 +402,6 @@
         private System.Windows.Forms.Button btn_delete;
         private System.Windows.Forms.Button btn_insertPre;
         private System.Windows.Forms.Button btn_insertMajors;
-        private System.Windows.Forms.Button btn_reset2;
         private System.Windows.Forms.GroupBox groupBox3;
         private System.Windows.Forms.TextBox txt_left;
         private System.Windows.Forms.Label label1;
@@ -386,10 +409,12 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox txt_right;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.GroupBox groupBox4;
+        private System.Windows.Forms.GroupBox grp_yesno;
         private System.Windows.Forms.Button btn_yes;
         private System.Windows.Forms.Button btn_no;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.TextBox txt_des;
+        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.Button btn_huy;
     }
 }

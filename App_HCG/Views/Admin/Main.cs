@@ -51,7 +51,9 @@ namespace App_HCG.Views.Admin
         }
         private void tưVấnToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            
+            Views.Admin.Advisor myControl = new Views.Admin.Advisor();
+            panel_main.Controls.Clear();
+            panel_main.Controls.Add(myControl);
         }
 
         private void tậpLuậtToolStripMenuItem_Click(object sender, EventArgs e)

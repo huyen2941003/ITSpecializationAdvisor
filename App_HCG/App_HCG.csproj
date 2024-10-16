@@ -70,6 +70,12 @@
     <Compile Include="Views\Admin\About.Designer.cs">
       <DependentUpon>About.cs</DependentUpon>
     </Compile>
+    <Compile Include="Views\Admin\Advisor.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Views\Admin\Advisor.Designer.cs">
+      <DependentUpon>Advisor.cs</DependentUpon>
+    </Compile>
     <Compile Include="Views\Admin\Description.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -133,6 +139,9 @@
     </Compile>
     <EmbeddedResource Include="Views\Admin\About.resx">
       <DependentUpon>About.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Admin\Advisor.resx">
+      <DependentUpon>Advisor.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Views\Admin\Description.resx">
       <DependentUpon>Description.cs</DependentUpon>

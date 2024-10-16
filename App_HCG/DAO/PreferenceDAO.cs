@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Data;
+using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -48,6 +49,18 @@ namespace App_HCG.DAO
             string query = string.Format("Delete from Preferences where id = N'{0}'", id);
             int result = Connection.Instance.ExecuteNonQuery(query);
             return result > 0;
+        }
+        public List<Preferences> Search(string description)
+        {
+            List<Preferences> list = new List<Preferences>();
+            string query = string.Format("Select * from Preferences where description like N'%{0}%'", description);
+            DataTable data = Connection.Instance.ExecuteQuery(query);
+            foreach (DataRow item in data.Rows)
+            {
+                Preferences preferences = new Preferences(item);
+                list.Add(preferences);
+            }
+            return list;
         }
     }
 }
