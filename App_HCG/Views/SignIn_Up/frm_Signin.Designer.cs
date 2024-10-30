@@ -31,11 +31,13 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frm_Signin));
             this.btn_signIn = new System.Windows.Forms.Button();
             this.grp_dangnhap = new System.Windows.Forms.GroupBox();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.txt_password = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.txt_user = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.btn_signup = new System.Windows.Forms.Button();
+            this.label4 = new System.Windows.Forms.Label();
             this.grp_dangnhap.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
@@ -53,6 +55,8 @@
             // 
             // grp_dangnhap
             // 
+            this.grp_dangnhap.Controls.Add(this.label4);
+            this.grp_dangnhap.Controls.Add(this.btn_signup);
             this.grp_dangnhap.Controls.Add(this.pictureBox1);
             this.grp_dangnhap.Controls.Add(this.btn_signIn);
             this.grp_dangnhap.Controls.Add(this.txt_password);
@@ -63,10 +67,20 @@
             this.grp_dangnhap.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(40)))), ((int)(((byte)(83)))));
             this.grp_dangnhap.Location = new System.Drawing.Point(335, 119);
             this.grp_dangnhap.Name = "grp_dangnhap";
-            this.grp_dangnhap.Size = new System.Drawing.Size(882, 575);
+            this.grp_dangnhap.Size = new System.Drawing.Size(882, 613);
             this.grp_dangnhap.TabIndex = 10;
             this.grp_dangnhap.TabStop = false;
             this.grp_dangnhap.Text = "Đăng nhập hệ thống";
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = global::App_HCG.Properties.Resources.logo;
+            this.pictureBox1.Location = new System.Drawing.Point(328, 55);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(234, 211);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox1.TabIndex = 6;
+            this.pictureBox1.TabStop = false;
             // 
             // txt_password
             // 
@@ -107,15 +121,26 @@
             this.label1.TabIndex = 0;
             this.label1.Text = "Tài khoản:";
             // 
-            // pictureBox1
+            // btn_signup
             // 
-            this.pictureBox1.Image = global::App_HCG.Properties.Resources.logo;
-            this.pictureBox1.Location = new System.Drawing.Point(328, 55);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(234, 211);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox1.TabIndex = 6;
-            this.pictureBox1.TabStop = false;
+            this.btn_signup.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_signup.Location = new System.Drawing.Point(480, 550);
+            this.btn_signup.Name = "btn_signup";
+            this.btn_signup.Size = new System.Drawing.Size(162, 38);
+            this.btn_signup.TabIndex = 13;
+            this.btn_signup.Text = "Đăng ký";
+            this.btn_signup.UseVisualStyleBackColor = true;
+            this.btn_signup.Click += new System.EventHandler(this.btn_signup_Click);
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Times New Roman", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.Location = new System.Drawing.Point(250, 556);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(228, 26);
+            this.label4.TabIndex = 14;
+            this.label4.Text = "Bạn chưa có tài khoản?";
             // 
             // frm_Signin
             // 
@@ -143,5 +168,7 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox txt_user;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Button btn_signup;
+        private System.Windows.Forms.Label label4;
     }
 }

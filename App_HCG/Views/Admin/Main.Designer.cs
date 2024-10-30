@@ -38,6 +38,7 @@
             this.giớiThiệuToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.tưVaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.panel_main = new System.Windows.Forms.Panel();
+            this.đăngXuấtToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -52,7 +53,8 @@
             this.sựKiệnToolStripMenuItem,
             this.kếtQuảToolStripMenuItem,
             this.chuyênNgànhToolStripMenuItem,
-            this.giớiThiệuToolStripMenuItem});
+            this.giớiThiệuToolStripMenuItem,
+            this.đăngXuấtToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Size = new System.Drawing.Size(1517, 34);
@@ -116,6 +118,13 @@
             this.panel_main.Size = new System.Drawing.Size(1517, 768);
             this.panel_main.TabIndex = 1;
             // 
+            // đăngXuấtToolStripMenuItem
+            // 
+            this.đăngXuấtToolStripMenuItem.Name = "đăngXuấtToolStripMenuItem";
+            this.đăngXuấtToolStripMenuItem.Size = new System.Drawing.Size(121, 30);
+            this.đăngXuấtToolStripMenuItem.Text = "Đăng xuất";
+            this.đăngXuấtToolStripMenuItem.Click += new System.EventHandler(this.đăngXuấtToolStripMenuItem_Click);
+            // 
             // Main
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
@@ -146,5 +155,6 @@
         private System.Windows.Forms.ToolStripMenuItem giớiThiệuToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem chuyênNgànhToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem tưVaToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem đăngXuấtToolStripMenuItem;
     }
 }

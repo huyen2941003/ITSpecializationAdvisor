@@ -16,7 +16,7 @@ namespace App_HCG
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Views.Admin.Main());
+            Application.Run(new Views.SignIn_Up.frm_Signin());
         }
     }
 }

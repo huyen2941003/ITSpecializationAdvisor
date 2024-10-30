@@ -27,7 +27,7 @@ namespace App_HCG.Views.SignIn_Up
 
         private void btn_signIn_Click(object sender, EventArgs e)
         {
-            frm_Signup frm = new frm_Signup();
+            frm_Signin frm = new frm_Signin();
             this.Hide();
             frm.ShowDialog();
         }

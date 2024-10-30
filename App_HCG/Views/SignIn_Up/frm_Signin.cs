@@ -40,8 +40,8 @@ namespace App_HCG.Views.SignIn_Up
                 if (AccountDAO.Instance.Login(username, password).Count > 0)
                 {
                     Account loggedInUser = accounts[0];
-                    Views.Admin.Main frm = new Views.Admin.Main();
-                    //Views.Admin.Main frm = new Views.Admin.Main(loggedInUser.Role);
+                    //Views.Admin.Main frm = new Views.Admin.Main();
+                    Views.Admin.Main frm = new Views.Admin.Main(loggedInUser.Role);
                     this.Hide();
                     frm.ShowDialog();
                 }
@@ -57,6 +57,13 @@ namespace App_HCG.Views.SignIn_Up
             {
                 e.Cancel = true;
             }
+        }
+
+        private void btn_signup_Click(object sender, EventArgs e)
+        {
+            frm_Signup frm = new frm_Signup();
+            this.Hide();
+            frm.ShowDialog();
         }
     }
 }

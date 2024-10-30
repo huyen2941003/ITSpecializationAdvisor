@@ -15,18 +15,19 @@ namespace App_HCG.Views.Admin
         private int role;
         public int Role { get => role; set => role = value; }
 
-        //public Main(int role)
-        public Main()
+        public Main(int role)
+        //public Main()
         {
             InitializeComponent();
-            //this.Role = role;
-            //DisplayAccount(role);
+            this.Role = role;
+            DisplayAccount(role);
         }
-        /*private void DisplayAccount(int role)
+        private void DisplayAccount(int role)
         {
             if (role == 1)
             {
                 tưVấnToolStripMenuItem.Visible = true;
+                tưVaToolStripMenuItem.Visible = true;
                 tậpLuậtToolStripMenuItem.Visible = false;
                 sựKiệnToolStripMenuItem.Visible = false;
                 kếtQuảToolStripMenuItem.Visible = false;
@@ -36,13 +37,14 @@ namespace App_HCG.Views.Admin
             else if (role == 0)
             {
                 tưVấnToolStripMenuItem.Visible = true;
+                tưVaToolStripMenuItem.Visible = true;
                 tậpLuậtToolStripMenuItem.Visible = true;
                 sựKiệnToolStripMenuItem.Visible = true;
                 kếtQuảToolStripMenuItem.Visible = true;
                 chuyênNgànhToolStripMenuItem.Visible = true;
                 giớiThiệuToolStripMenuItem.Visible = true;
             }
-        }*/
+        }
         protected override void OnLoad(EventArgs e)
         {
             base.OnLoad(e);
@@ -103,6 +105,25 @@ namespace App_HCG.Views.Admin
             Views.Admin.Advisor2 myControl = new Views.Admin.Advisor2();
             panel_main.Controls.Clear();
             panel_main.Controls.Add(myControl);
+        }
+
+        private void đăngXuấtToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            DialogResult result = MessageBox.Show("Bạn có muốn đăng xuất?", "Thông báo", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+            if (result == DialogResult.Yes)
+            {
+                foreach (Form frm in Application.OpenForms)
+                {
+                    if (frm != null && frm.Name != "frm_Signin")
+                    {
+                        frm.Close();
+                    }
+                }
+
+                Views.SignIn_Up.frm_Signin loginForm = new Views.SignIn_Up.frm_Signin();
+                loginForm.Show();
+                this.Close();
+            }
         }
     }
 }

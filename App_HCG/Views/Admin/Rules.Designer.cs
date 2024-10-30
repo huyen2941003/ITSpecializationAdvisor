@@ -38,8 +38,6 @@
             this.btn_update = new System.Windows.Forms.Button();
             this.btn_reset = new System.Windows.Forms.Button();
             this.btn_delete = new System.Windows.Forms.Button();
-            this.btn_insertPre = new System.Windows.Forms.Button();
-            this.btn_insertMajors = new System.Windows.Forms.Button();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.label4 = new System.Windows.Forms.Label();
             this.txt_des = new System.Windows.Forms.TextBox();
@@ -180,26 +178,6 @@
             this.btn_delete.Text = "Xóa";
             this.btn_delete.UseVisualStyleBackColor = true;
             this.btn_delete.Click += new System.EventHandler(this.btn_delete_Click);
-            // 
-            // btn_insertPre
-            // 
-            this.btn_insertPre.Font = new System.Drawing.Font("Times New Roman", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_insertPre.Location = new System.Drawing.Point(627, 290);
-            this.btn_insertPre.Name = "btn_insertPre";
-            this.btn_insertPre.Size = new System.Drawing.Size(240, 48);
-            this.btn_insertPre.TabIndex = 26;
-            this.btn_insertPre.Text = "Chọn vế trái >>";
-            this.btn_insertPre.UseVisualStyleBackColor = true;
-            // 
-            // btn_insertMajors
-            // 
-            this.btn_insertMajors.Font = new System.Drawing.Font("Times New Roman", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_insertMajors.Location = new System.Drawing.Point(627, 355);
-            this.btn_insertMajors.Name = "btn_insertMajors";
-            this.btn_insertMajors.Size = new System.Drawing.Size(240, 48);
-            this.btn_insertMajors.TabIndex = 27;
-            this.btn_insertMajors.Text = "Chọn vế phải >>";
-            this.btn_insertMajors.UseVisualStyleBackColor = true;
             // 
             // groupBox3
             // 
@@ -345,7 +323,7 @@
             // btn_huy
             // 
             this.btn_huy.Font = new System.Drawing.Font("Times New Roman", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_huy.Location = new System.Drawing.Point(627, 421);
+            this.btn_huy.Location = new System.Drawing.Point(627, 350);
             this.btn_huy.Name = "btn_huy";
             this.btn_huy.Size = new System.Drawing.Size(240, 48);
             this.btn_huy.TabIndex = 29;
@@ -360,8 +338,6 @@
             this.Controls.Add(this.btn_huy);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.groupBox3);
-            this.Controls.Add(this.btn_insertMajors);
-            this.Controls.Add(this.btn_insertPre);
             this.Controls.Add(this.btn_reset);
             this.Controls.Add(this.btn_delete);
             this.Controls.Add(this.btn_update);
@@ -398,8 +374,6 @@
         private System.Windows.Forms.Button btn_update;
         private System.Windows.Forms.Button btn_reset;
         private System.Windows.Forms.Button btn_delete;
-        private System.Windows.Forms.Button btn_insertPre;
-        private System.Windows.Forms.Button btn_insertMajors;
         private System.Windows.Forms.GroupBox groupBox3;
         private System.Windows.Forms.TextBox txt_left;
         private System.Windows.Forms.Label label1;
