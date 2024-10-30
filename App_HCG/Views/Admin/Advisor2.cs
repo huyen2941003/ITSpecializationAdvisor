@@ -131,7 +131,7 @@ namespace App_HCG.Views.Admin
                 var mostPopularMajor = majorCounts.OrderByDescending(x => x.Value).First();
                 txt_majors.Text = $"{mostPopularMajor.Key}";
                 int totalPreferences = majorCounts.Values.Sum();
-                txt_explain.Text = $"Bởi vì có: {mostPopularMajor.Value}/{totalPreferences} sở thích là {mostPopularMajor.Key}.";
+                txt_explain.Text = $"Bởi vì có: {mostPopularMajor.Value}/{totalPreferences} sở thích phù hợp với chuyên ngành {mostPopularMajor.Key}.";
             }
             else
             {
