@@ -190,7 +190,6 @@
             this.btn_insertPre.TabIndex = 26;
             this.btn_insertPre.Text = "Chọn vế trái >>";
             this.btn_insertPre.UseVisualStyleBackColor = true;
-            this.btn_insertPre.Click += new System.EventHandler(this.btn_insertPre_Click);
             // 
             // btn_insertMajors
             // 
@@ -201,7 +200,6 @@
             this.btn_insertMajors.TabIndex = 27;
             this.btn_insertMajors.Text = "Chọn vế phải >>";
             this.btn_insertMajors.UseVisualStyleBackColor = true;
-            this.btn_insertMajors.Click += new System.EventHandler(this.btn_insertMajors_Click);
             // 
             // groupBox3
             // 

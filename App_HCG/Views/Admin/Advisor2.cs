@@ -1,5 +1,4 @@
 ﻿using App_HCG.DAO;
-using App_HCG.DTO;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -9,23 +8,21 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace App_HCG.Views.Admin
 {
-    public partial class Advisor : UserControl
+    public partial class Advisor2 : UserControl
     {
         private string selectePreferences;
         private string selecteIdPreferences;
 
-        public Advisor()
+        public Advisor2()
         {
             InitializeComponent();
-            txt_preferences.ScrollBars = ScrollBars.Vertical; 
+            txt_preferences.ScrollBars = ScrollBars.Vertical;
             txt_explain.ScrollBars = ScrollBars.Vertical;
         }
-
-        private void Advisor_Load(object sender, EventArgs e)
+        private void Advisor2_Load(object sender, EventArgs e)
         {
             dgv_preference.DataSource = PreferenceDAO.Instance.getlistPreferences2();
             dgv_preference.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
@@ -35,7 +32,13 @@ namespace App_HCG.Views.Admin
             dgv_preference.Columns["id_majors"].HeaderText = "Chuyên ngành đi kèm";
         }
 
-        private void btn_huy_Click(object sender, EventArgs e)
+        private void txt_search_TextChanged(object sender, EventArgs e)
+        {
+            string searchdtb = txt_search.Text.Trim();
+            dgv_preference.DataSource = PreferenceDAO.Instance.Search(searchdtb);
+        }
+
+        private void btn_huy_Click_1(object sender, EventArgs e)
         {
             string[] lines = txt_preferences.Text.Split(new[] { Environment.NewLine }, StringSplitOptions.None);
             if (lines.Length >= 1)
@@ -44,7 +47,47 @@ namespace App_HCG.Views.Admin
             }
         }
 
-        private void dgv_preference_CellClick(object sender, DataGridViewCellEventArgs e)
+        private void btn_huytat_Click_1(object sender, EventArgs e)
+        {
+            txt_preferences.Text = "";
+            txt_explain.Text = "";
+            txt_majors.Text = "";
+        }
+
+        private void btn_yes_Click_1(object sender, EventArgs e)
+        {
+            if (grp_yesno.Text != "")
+            {
+                if (txt_preferences.Text == "")
+                {
+                    txt_preferences.Text = selecteIdPreferences + ": " + selectePreferences;
+                }
+                else
+                {
+                    txt_preferences.Text = txt_preferences.Text + Environment.NewLine + selecteIdPreferences + ": " + selectePreferences;
+                }
+            }
+        }
+
+        private void btn_no_Click_1(object sender, EventArgs e)
+        {
+            string currentText = grp_yesno.Text;
+            int index = currentText.IndexOf("Sinh viên");
+            if (index != -1 && !currentText.Contains("không"))
+            {
+                currentText = currentText.Insert(index + "Sinh viên".Length, " không");
+                if (txt_preferences.Text == "" && grp_yesno.Text != "")
+                {
+                    txt_preferences.Text = "¬" + selecteIdPreferences + ": " + currentText;
+                }
+                else
+                {
+                    txt_preferences.Text = txt_preferences.Text + Environment.NewLine + "¬" + selecteIdPreferences + ": " + currentText;
+                }
+            }
+        }
+
+        private void dgv_preference_CellClick_1(object sender, DataGridViewCellEventArgs e)
         {
             int r = e.RowIndex;
             if (r >= 0)
@@ -63,99 +106,40 @@ namespace App_HCG.Views.Admin
                 txt_majors.Text = "";
             }
         }
-        private void btn_huytat_Click(object sender, EventArgs e)
-        {
-            txt_preferences.Text = "";
-            txt_explain.Text = "";
-            txt_majors.Text = "";
-        }
-
-        private void btn_select_Click(object sender, EventArgs e)
-        {
-            if (selectePreferences != null)
-            {
-                grp_yesno.Text = selectePreferences + "?";
-            }
-            else
-            {
-                MessageBox.Show("Vui lòng chọn kết luận cho luật", "Thông báo");
-            }          
-        }
-
-        private void btn_yes_Click(object sender, EventArgs e)
-        {
-            if (grp_yesno.Text != "")
-            {
-                if (txt_preferences.Text == "")
-                {
-                    txt_preferences.Text = selecteIdPreferences + ": " + selectePreferences;
-                }
-                else
-                {
-                    txt_preferences.Text = txt_preferences.Text + Environment.NewLine + selecteIdPreferences + ": " + selectePreferences;
-                }
-            }
-        }
-
-        private void btn_no_Click(object sender, EventArgs e)
-        {
-            string currentText = grp_yesno.Text;
-            int index = currentText.IndexOf("Sinh viên");
-            if (index != -1 && !currentText.Contains("không"))
-            {
-                currentText = currentText.Insert(index + "Sinh viên".Length, " không");
-                if (txt_preferences.Text == "" && grp_yesno.Text != "")
-                {
-                    txt_preferences.Text = "¬" + selecteIdPreferences + ": " + currentText;
-                }
-                else
-                {
-                    txt_preferences.Text = txt_preferences.Text + Environment.NewLine + "¬" + selecteIdPreferences + ": " + currentText;
-                }
-            }
-        }
-
-        private void txt_search_TextChanged(object sender, EventArgs e)
-        {
-            string searchdtb = txt_search.Text.Trim();
-            dgv_preference.DataSource = PreferenceDAO.Instance.Search(searchdtb);
-        }
-
-        private void btn_advisor_Click(object sender, EventArgs e)
+        private void btn_advisor_Click_1(object sender, EventArgs e)
         {
             string input = txt_preferences.Text;
             string[] parts = input.Split(new[] { Environment.NewLine }, StringSplitOptions.RemoveEmptyEntries);
-            List<string> results = new List<string>();
+            List<string> preferenceIds = new List<string>();
 
+            // Trích xuất ID preference (S hoặc ¬S)
             foreach (string part in parts)
             {
                 int colonIndex = part.IndexOf(':');
                 if (colonIndex >= 0)
                 {
                     string id = part.Substring(0, colonIndex).Trim();
-                    if (id.StartsWith("S") || id.StartsWith("¬S")) 
+                    if (id.StartsWith("S") || id.StartsWith("¬S"))
                     {
-                        results.Add(id);
+                        preferenceIds.Add(id);
                     }
                 }
             }
-            string resultString = string.Join(" ∧ ", results);
-            string ruleSValue = RulesDAO.Instance.GetRulesString();
-            int arrowIndex = ruleSValue.IndexOf('→');
-            if (arrowIndex >= 0)
+            Dictionary<string, int> majorCounts = RulesDAO.Instance.GetMajorCounts(preferenceIds);
+            if (majorCounts.Count > 0)
             {
-                string leftCondition = ruleSValue.Substring(0, arrowIndex).Trim();
-                string rightCondition = ruleSValue.Substring(arrowIndex + 1).Trim();
-                if (leftCondition == resultString)
-                {
-                    txt_majors.Text = RulesDAO.Instance.GetMajorsString(rightCondition);
-                    txt_explain.Text = "Bởi vì " + RulesDAO.Instance.GetRulesString2(ruleSValue);
-                }
-                else
-                {
-                    txt_majors.Text = "Không có chuyên ngành nào phù hợp";
-                }
+                var mostPopularMajor = majorCounts.OrderByDescending(x => x.Value).First();
+                txt_majors.Text = $"{mostPopularMajor.Key}";
+                int totalPreferences = majorCounts.Values.Sum();
+                txt_explain.Text = $"Bởi vì có: {mostPopularMajor.Value}/{totalPreferences} sở thích là {mostPopularMajor.Key}.";
             }
+            else
+            {
+                txt_majors.Text = "Không tìm thấy chuyên ngành nào cho các sở thích đã cho.";
+                txt_explain.Text = string.Empty;
+            }
+
         }
+
     }
 }

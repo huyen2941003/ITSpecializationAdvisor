@@ -58,8 +58,16 @@ namespace App_HCG.Views.Admin
             if (r >= 0)
             {
                 txt_id.Text = dgv_rules.Rows[r].Cells["id"].Value.ToString();
-                string leftCondition = ruleSValue.Substring(0, arrowIndex).Trim();
-                txt_left.Text = leftCondition; 
+                if(ruleSValue!="")
+                {
+                    string leftCondition = ruleSValue.Substring(0, arrowIndex).Trim();
+                    txt_left.Text = leftCondition;
+                }
+                else
+                {
+                    txt_left.Text = "";
+
+                }
                 txt_right.Text = dgv_rules.Rows[r].Cells["id_Majors"].Value.ToString();
                 txt_des.Text = dgv_rules.Rows[r].Cells["description"].Value.ToString();
 
@@ -75,18 +83,14 @@ namespace App_HCG.Views.Admin
             if (r >= 0)
             {
                 selecteMajors = dgv_majors.Rows[r].Cells["id"].Value.ToString();
-            }
-        }
-
-        private void btn_insertMajors_Click(object sender, EventArgs e)
-        {
-            if (selecteMajors != null)
-            {
-                txt_right.Text = selecteMajors;
-            }
-            else
-            {
-                MessageBox.Show("Vui lòng chọn kết luận cho luật", "Thông báo");
+                if (selecteMajors != null)
+                {
+                    txt_right.Text = selecteMajors;
+                }
+                else
+                {
+                    MessageBox.Show("Vui lòng chọn kết luận cho luật", "Thông báo");
+                }
             }
         }
 
@@ -97,18 +101,14 @@ namespace App_HCG.Views.Admin
             {
                 selecteIdPreferences = dgv_preference.Rows[r].Cells["id"].Value.ToString();
                 selectePreferences = dgv_preference.Rows[r].Cells["description"].Value.ToString();
-            }
-        }
-
-        private void btn_insertPre_Click(object sender, EventArgs e)
-        {
-            if (selectePreferences != null)
-            {
-                grp_yesno.Text = selectePreferences + "?";
-            }
-            else
-            {
-                MessageBox.Show("Vui lòng chọn kết luận cho luật", "Thông báo");
+                if (selectePreferences != null)
+                {
+                    grp_yesno.Text = selectePreferences + "?";
+                }
+                else
+                {
+                    MessageBox.Show("Vui lòng chọn kết luận cho luật", "Thông báo");
+                }
             }
         }
 
@@ -184,10 +184,6 @@ namespace App_HCG.Views.Admin
                 }
             }
         }
-        bool DeleteRule_Preferences(string id)
-        {
-            return RulesDAO.Instance.DeleteRule_Preferences(id);
-        }
         bool DeleteRules(string id)
         {
             return RulesDAO.Instance.DeleteRules(id);
@@ -195,7 +191,7 @@ namespace App_HCG.Views.Admin
         private void btn_delete_Click(object sender, EventArgs e)
         {
             string id = txt_id.Text;
-            if (DeleteRule_Preferences(id))
+            if (DeleteRules(id))
             {
                 if (DeleteRules(id))
                 {

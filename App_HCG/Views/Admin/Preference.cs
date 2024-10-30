@@ -17,6 +17,13 @@ namespace App_HCG.Views.Admin
         {
             InitializeComponent();
             txt_id.Enabled = false;
+            LoadCmb();
+        }
+        void LoadCmb()
+        {
+            List<DTO.Majors> majors = MajorsDAO.Instance.getlistMajors();
+            cmb_majors.DataSource = majors;
+            cmb_majors.DisplayMember = "name";
         }
         void Clear()
         {
@@ -29,12 +36,13 @@ namespace App_HCG.Views.Admin
         }
         private void Preference_Load(object sender, EventArgs e)
         {
-            dgv_preference.DataSource = PreferenceDAO.Instance.getlistPreferences();
+            dgv_preference.DataSource = PreferenceDAO.Instance.getlistPreferences2();
             dgv_preference.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dgv_preference.ReadOnly = true;
 
-            dgv_preference.Columns["id"].HeaderText = "Mã chuyên ngành";
+            dgv_preference.Columns["id"].HeaderText = "Mã Sở thích";
             dgv_preference.Columns["description"].HeaderText = "Mô tả";
+            dgv_preference.Columns["id_majors"].HeaderText = "Chuyên ngành";
 
             btn_delete.Enabled = false;
             btn_update.Enabled = false;
@@ -47,19 +55,21 @@ namespace App_HCG.Views.Admin
             {
                 txt_id.Text = dgv_preference.Rows[r].Cells["id"].Value.ToString();
                 txt_des.Text = dgv_preference.Rows[r].Cells["description"].Value.ToString();
+                cmb_majors.SelectedIndex = cmb_majors.FindString(dgv_preference.Rows[r].Cells["id_majors"].Value.ToString());
 
                 btn_delete.Enabled = true;
                 btn_update.Enabled = true;
                 btn_insert.Enabled = false;
             }
         }
-        bool InsertPreference(string description)
+        bool InsertPreference(string description, string id_majors)
         {
-            return PreferenceDAO.Instance.InsertPreferences(description);
+            return PreferenceDAO.Instance.InsertPreferences(description, id_majors);
         }
         private void btn_insert_Click(object sender, EventArgs e)
         {
             string description = txt_des.Text;
+            string id_majors = ((DTO.Majors)cmb_majors.SelectedItem).Name;
 
             if (string.IsNullOrEmpty(description))
             {
@@ -67,7 +77,7 @@ namespace App_HCG.Views.Admin
             }
             else
             {
-                if (InsertPreference(description))
+                if (InsertPreference(description, id_majors))
                 {
                     MessageBox.Show("Thêm thành công!");
                     btn_reset.PerformClick();
@@ -101,16 +111,18 @@ namespace App_HCG.Views.Admin
                 MessageBox.Show("Xóa thất bại, vui lòng kiểm tra lại dữ liệu!");
             }
         }
-        bool UpdatePreference(string iD, string description)
+        bool UpdatePreference(string iD, string description, string id_majors)
         {
-            return PreferenceDAO.Instance.UpdatePreferences(iD, description);
+            return PreferenceDAO.Instance.UpdatePreferences(iD, description, id_majors);
         }
 
         private void btn_update_Click(object sender, EventArgs e)
         {
             string id = txt_id.Text;
             string description = txt_des.Text;
-            if (UpdatePreference(id, description))
+            string id_majors = ((DTO.Majors)cmb_majors.SelectedItem).Name;
+
+            if (UpdatePreference(id, description, id_majors))
             {
                 MessageBox.Show("Sửa thành công!");
                 btn_reset.PerformClick();
@@ -124,7 +136,7 @@ namespace App_HCG.Views.Admin
         private void btn_reset_Click(object sender, EventArgs e)
         {
             Clear();
-            dgv_preference.DataSource = PreferenceDAO.Instance.getlistPreferences();
+            dgv_preference.DataSource = PreferenceDAO.Instance.getlistPreferences2();
         }
     }
 }

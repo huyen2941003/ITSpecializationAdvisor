@@ -97,5 +97,12 @@ namespace App_HCG.Views.Admin
             panel_main.Controls.Clear();
             panel_main.Controls.Add(myControl);
         }
+
+        private void tưVaToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Views.Admin.Advisor2 myControl = new Views.Admin.Advisor2();
+            panel_main.Controls.Clear();
+            panel_main.Controls.Add(myControl);
+        }
     }
 }

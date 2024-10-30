@@ -55,7 +55,6 @@
     <Compile Include="DTO\Majors.cs" />
     <Compile Include="DTO\Preferences.cs" />
     <Compile Include="DTO\Rules.cs" />
-    <Compile Include="DTO\Rule_Preferences.cs" />
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -75,6 +74,12 @@
     </Compile>
     <Compile Include="Views\Admin\Advisor.Designer.cs">
       <DependentUpon>Advisor.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Admin\Advisor2.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Views\Admin\Advisor2.Designer.cs">
+      <DependentUpon>Advisor2.cs</DependentUpon>
     </Compile>
     <Compile Include="Views\Admin\Description.cs">
       <SubType>UserControl</SubType>
@@ -142,6 +147,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Views\Admin\Advisor.resx">
       <DependentUpon>Advisor.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Admin\Advisor2.resx">
+      <DependentUpon>Advisor2.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Views\Admin\Description.resx">
       <DependentUpon>Description.cs</DependentUpon>

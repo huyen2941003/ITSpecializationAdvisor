@@ -38,6 +38,8 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.txt_id = new System.Windows.Forms.TextBox();
+            this.label = new System.Windows.Forms.Label();
+            this.cmb_majors = new System.Windows.Forms.ComboBox();
             this.grpbox.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_preference)).BeginInit();
             this.SuspendLayout();
@@ -117,7 +119,7 @@
             this.txt_des.Location = new System.Drawing.Point(893, 225);
             this.txt_des.Multiline = true;
             this.txt_des.Name = "txt_des";
-            this.txt_des.Size = new System.Drawing.Size(515, 307);
+            this.txt_des.Size = new System.Drawing.Size(515, 180);
             this.txt_des.TabIndex = 25;
             // 
             // label3
@@ -149,10 +151,33 @@
             this.txt_id.Size = new System.Drawing.Size(515, 39);
             this.txt_id.TabIndex = 37;
             // 
+            // label
+            // 
+            this.label.AutoSize = true;
+            this.label.Font = new System.Drawing.Font("Times New Roman", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label.Location = new System.Drawing.Point(893, 425);
+            this.label.Name = "label";
+            this.label.Size = new System.Drawing.Size(265, 33);
+            this.label.TabIndex = 38;
+            this.label.Text = "Chuyên ngành đi kèm:";
+            // 
+            // cmb_majors
+            // 
+            this.cmb_majors.BackColor = System.Drawing.Color.White;
+            this.cmb_majors.Font = new System.Drawing.Font("Times New Roman", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cmb_majors.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(40)))), ((int)(((byte)(83)))));
+            this.cmb_majors.FormattingEnabled = true;
+            this.cmb_majors.Location = new System.Drawing.Point(893, 461);
+            this.cmb_majors.Name = "cmb_majors";
+            this.cmb_majors.Size = new System.Drawing.Size(515, 39);
+            this.cmb_majors.TabIndex = 39;
+            // 
             // Preference
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.BackColor = System.Drawing.Color.White;
+            this.Controls.Add(this.cmb_majors);
+            this.Controls.Add(this.label);
             this.Controls.Add(this.txt_id);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.txt_des);
@@ -184,5 +209,7 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox txt_id;
+        private System.Windows.Forms.Label label;
+        private System.Windows.Forms.ComboBox cmb_majors;
     }
 }

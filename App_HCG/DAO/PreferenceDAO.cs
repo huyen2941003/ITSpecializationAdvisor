@@ -32,15 +32,29 @@ namespace App_HCG.DAO
             }
             return list;
         }
-        public bool InsertPreferences(string description)
+        public List<Preferences> getlistPreferences2()
         {
-            string query = string.Format("Insert into Preferences (description) values (N'{0}')", description);
+            List<Preferences> list = new List<Preferences>();
+            string query = "select P.id, P.description, M.name as id_majors " +
+                "from Preferences P " +
+                "left join Majors M On M.id = P.id_majors";
+            DataTable data = Connection.Instance.ExecuteQuery(query);
+            foreach (DataRow item in data.Rows)
+            {
+                Preferences preferences = new Preferences(item);
+                list.Add(preferences);
+            }
+            return list;
+        }
+        public bool InsertPreferences(string description, string id_majors)
+        {
+            string query = string.Format("Insert into Preferences (description, id_majors) values (N'{0}', (SELECT id FROM Majors WHERE name = N'{1}'))", description, id_majors);
             int result = Connection.Instance.ExecuteNonQuery(query);
             return result > 0;
         }
-        public bool UpdatePreferences(string id, string description)
+        public bool UpdatePreferences(string id, string description, string id_majors)
         {
-            string query = string.Format("Update Preferences set description = N'{0}' where id = N'{1}'", description, id);
+            string query = string.Format("Update Preferences set description = N'{1}', id_majors = (SELECT id FROM Majors WHERE name = N'{2}') where id = N'{0}'", id, description, id_majors);
             int result = Connection.Instance.ExecuteNonQuery(query);
             return result > 0;
         }
