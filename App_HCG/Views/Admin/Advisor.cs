@@ -126,35 +126,43 @@ namespace App_HCG.Views.Admin
             string input = txt_preferences.Text;
             string[] parts = input.Split(new[] { Environment.NewLine }, StringSplitOptions.RemoveEmptyEntries);
             List<string> results = new List<string>();
-
+            
             foreach (string part in parts)
             {
                 int colonIndex = part.IndexOf(':');
                 if (colonIndex >= 0)
                 {
                     string id = part.Substring(0, colonIndex).Trim();
-                    if (id.StartsWith("S") || id.StartsWith("¬S")) 
+                    if (id.StartsWith("S") || id.StartsWith("¬S"))
                     {
                         results.Add(id);
                     }
                 }
             }
             string resultString = string.Join(" ∧ ", results);
-            string ruleSValue = RulesDAO.Instance.GetRulesString();
-            int arrowIndex = ruleSValue.IndexOf('→');
-            if (arrowIndex >= 0)
+            List<string> rulesList = RulesDAO.Instance.GetRulesList();
+            bool foundMatch = false;
+            foreach (string rule in rulesList)
             {
-                string leftCondition = ruleSValue.Substring(0, arrowIndex).Trim();
-                string rightCondition = ruleSValue.Substring(arrowIndex + 1).Trim();
-                if (leftCondition == resultString)
+                int arrowIndex = rule.IndexOf('→');
+                if (arrowIndex >= 0)
                 {
-                    txt_majors.Text = RulesDAO.Instance.GetMajorsString(rightCondition);
-                    txt_explain.Text = "Bởi vì " + RulesDAO.Instance.GetRulesString2(ruleSValue);
+                    string leftCondition = rule.Substring(0, arrowIndex).Trim();
+                    string rightCondition = rule.Substring(arrowIndex + 1).Trim();
+            
+                    if (leftCondition == resultString)
+                    {
+                        txt_majors.Text = RulesDAO.Instance.GetMajorsString(rightCondition);
+                        txt_explain.Text = "Bởi vì " + RulesDAO.Instance.GetRulesString2(rule);
+                        foundMatch = true;
+                        break;
+                    }
                 }
-                else
-                {
-                    txt_majors.Text = "Không có chuyên ngành nào phù hợp";
-                }
+            }
+            if (!foundMatch)
+            {
+                txt_majors.Text = "Không có chuyên ngành nào phù hợp";
+                txt_explain.Text = "";
             }
         }
     }
