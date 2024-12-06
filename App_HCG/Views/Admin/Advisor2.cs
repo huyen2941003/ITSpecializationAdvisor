@@ -111,7 +111,7 @@ namespace App_HCG.Views.Admin
             string input = txt_preferences.Text;
             string[] parts = input.Split(new[] { Environment.NewLine }, StringSplitOptions.RemoveEmptyEntries);
             List<string> preferenceIds = new List<string>();
-
+            
             // Trích xuất ID preference (S hoặc ¬S)
             foreach (string part in parts)
             {
@@ -122,6 +122,7 @@ namespace App_HCG.Views.Admin
                     if (id.StartsWith("S") || id.StartsWith("¬S"))
                     {
                         preferenceIds.Add(id);
+                        MessageBox.Show(id, "Preference ID", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     }
                 }
             }
@@ -138,8 +139,6 @@ namespace App_HCG.Views.Admin
                 txt_majors.Text = "Không tìm thấy chuyên ngành nào cho các sở thích đã cho.";
                 txt_explain.Text = string.Empty;
             }
-
         }
-
     }
 }
