@@ -31,19 +31,19 @@ namespace App_HCG.DAO
             }
             return list;
         }
-        public string GetRulesString()
+        public List<string> GetRulesList()
         {
-            string query = "SELECT TOP 1 ruleS FROM Rules";
+            string query = "SELECT ruleS FROM Rules";
             DataTable data = Connection.Instance.ExecuteQuery(query);
-
-            if (data.Rows.Count > 0)
+        
+            List<string> rulesList = new List<string>();
+        
+            foreach (DataRow row in data.Rows)
             {
-                return data.Rows[0]["ruleS"].ToString();
+                rulesList.Add(row["ruleS"].ToString());
             }
-            else
-            {
-                return string.Empty;
-            }
+        
+            return rulesList;
         }
         public string GetRulesString2(string id)
         {
